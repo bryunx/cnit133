@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>CNIT 133</title>
+	<!--CSS Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!--JS Bootstrap-->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<!--CSS-->
+	<link rel="stylesheet" href="css/main.css"></link>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<style></style>
+		<body>
+			<section class="body">
+
+			<form name="myform">
+			<table>
+			<tr>
+			<td>First Number:</td> 
+			<td><input type="text" name="num1" size="10"></td>
+			</tr>
+
+			<tr>
+			<td>Second Number:</td> 
+			<td><input type="text" name="num2" size="10"></td>
+			</tr>
+
+			<tr>
+			<td>Third Number:</td> 
+			<td><input type="text" name="num3" size="10"></td>
+			</tr>
+
+			<tr>
+			<td>Sum is:</td> 
+			<td><input type="text" name="sum" size="10" readonly></td>
+			</tr>
+
+			<tr>
+			<td>Average is:</td> 
+			<td><input type="text" name="average" size="10" readonly></td>
+			</tr>
+
+			<tr>
+			<td>Product is:</td> 
+			<td><input type="text" name="product" size="10" readonly></td>
+			</tr>
+
+			<tr>
+			<td>Smallest is:</td> 
+			<td><input type="text" name="smallest" size="10" readonly></td>
+			</tr>
+
+			<tr>
+			<td>Largest is:</td> 
+			<td><input type="text" name="largest" size="10" readonly></td>
+			</tr>
+
+			</table>
+			<br><br>
+
+			<input type="button" onclick="process()" value="SUBMIT">
+			<input type="reset" value="RESET">
+			</form>
+			</section>
+		</body>
+
+
+
+		<!-- javascript -->
+		<script>
+			function process(){ 
+				var number1, number2, n1, n2, n3, sum;
+
+				number1 = document.forms["myform"].elements["num1"].value;
+
+				number2 = document.forms["myform"].elements["num2"].value;
+
+				number3 = document.forms["myform"].elements["num3"].value;
+
+				n1 = parseInt(number1);
+				n2 = parseInt(number2);
+				n3 = parseInt(number3);
+				sum = n1 + n2 + n3;
+				product = n1 * n2 * n3;
+				average = sum / 3;
+				smallest = Math.min(n1,n2,n3);
+				largest = Math.max(n1,n2,n3);
+				document.forms["myform"].elements["sum"].value = sum;
+				document.forms["myform"].elements["average"].value = average;
+				document.forms["myform"].elements["product"].value = product;
+				document.forms["myform"].elements["smallest"].value = smallest;
+				document.forms["myform"].elements["largest"].value = largest;
+				}
+		</script>
+
+	
+		
+		
+
+
+		<!-- jquery -->
+		<!--<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous">
+		</script>-->
+</html>

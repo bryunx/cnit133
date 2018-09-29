@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>CNIT 133</title>
+	<!--CSS Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!--JS Bootstrap-->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery.js"></script>
+
+	<!--CSS-->
+	<link rel="stylesheet" href="css/main.css"></link>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<style>
+		textarea {
+			background-color: red;
+		}
+	</style>
+		<body>
+			<section class="body">
+				<form name="myform">
+					<table>
+						<tr>
+							<td>First Number:</td>
+							<td><input type="text" name="num1" size="10"></td>
+						</tr>
+						<tr>
+							<td>Second Number:</td>
+							<td><input type="text" name="num2" size="10"></td>
+						</tr>
+						<tr>
+							<td>Third Number:</td>
+							<td><input type="text" name="num3" size="10"></td>
+						</tr>
+						<tr>
+							<td>Fourth Number:</td>
+							<td><input type="text" name="num4" size="10"></td>
+						</tr>
+						<tr>
+							<td>Fifth Number:</td>
+							<td><input type="text" name="num5" size="10"></td>
+						</tr>
+					</table>
+				<br> Results:
+				<textarea id="text" rows="4" cols="50" name="result"></textarea>
+				<br><br>
+					<input type="button" onclick="process()" value="SUBMIT">
+					<input type="reset" value="RESET">
+					
+				</form>
+			</section>
+				<button>Click to fade text box.</button><br><br>
+
+		
+
+
+
+		</body>
+
+
+
+		<!-- javascript -->
+		<script>
+			function process(){
+				var number1, number2, number3, number4, number5, n1, n2, n3, n4, n5, sum;
+
+				number1 = document.forms["myform"].elements["num1"].value;
+				number2 = document.forms["myform"].elements["num2"].value;
+				number3 = document.forms["myform"].elements["num3"].value;
+				number4 = document.forms["myform"].elements["num4"].value;
+				number5 = document.forms["myform"].elements["num5"].value;
+
+				num1 = parseInt(number1);
+				num2 = parseInt(number2);
+				num3 = parseInt(number3);
+				num4 = parseInt(number4);
+				num5 = parseInt(number5);
+				
+				var totalNeg = 0;
+				var totalPos = 0;
+				var totalZero = 0;
+
+				//Negative
+				if (num1 < 0){
+					totalNeg = totalNeg + 1;	
+				}
+				
+				if (num2 < 0){
+					totalNeg = totalNeg + 1;
+				}
+				
+				if (num3 < 0){
+					totalNeg = totalNeg + 1;
+				}
+			
+				if (num4 < 0){
+					totalNeg = totalNeg + 1;
+				}
+				
+				if (num5 < 0){
+					totalNeg = totalNeg + 1;
+				}
+				
+
+				//Positive
+				if (num1 > 0)
+					totalPos = totalPos + 1;
+				
+				if (num2 > 0)
+					totalPos = totalPos + 1;
+				
+				if (num3 > 0)
+					totalPos = totalPos + 1;
+				
+				if (num4 > 0)
+					totalPos = totalPos + 1;
+				
+				if (num5 > 0)
+					totalPos = totalPos + 1;
+
+				//Zero
+				if (num1 == 0)
+					totalZero = totalZero + 1;
+				
+				if (num2 == 0)
+					totalZero = totalZero + 1;
+				
+				if (num3 == 0)
+					totalZero = totalZero + 1;
+				
+				if (num4 == 0)
+					totalZero = totalZero + 1;
+				
+				if (num5 == 0)
+					totalZero = totalZero + 1;
+
+				document.forms["myform"].elements["result"].value = ("The inputted numbers were " + num1 + ", " + num2 + ", " + num3 + ", " + num4 + ", " + num5 +"\nThe sum of the positive integers are " + totalPos+"\nThe sum of the negative integers integers are " + totalNeg+"\nThe sum of zeros are " + totalZero);
+			};
+		</script>
+
+	
+<!-- 	<script src="js/first.js"></script> -->
+	
+
+
+		
+		
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>CNIT 133 Homework 4 - Looping Statements</title>
+<meta name="keywords" content="Raymond Chen Javascript Class"/>
+<meta name="description" content="Homework 4, Raymond Chen CNIT 133 Student"/>
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="http://fog.ccsf.edu/~srubin/jQvalidate.js"></script>
+<script type="text/javascript">
+//jQuery stuff
+
+</script>
+<style>
+.links {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+		    background-color: #333333;
+		}
+
+		.links li {
+		    float: left;
+		}
+
+		.links li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 16px;
+		    text-decoration: none;
+	    }
+
+		.links li a:hover {
+		    background-color: #111111;
+	    }
+</style>
+
+<script>
+$(document).ready(function(){
+	$("#employee").validate({
+	//rules for valid input
+	rules:
+	{
+		employee_1_hours: { required: true, number: true, min: 0 },
+		employee_2_hours: { required: true, number: true, min: 0 },
+		employee_3_hours: { required: true, number: true, min: 0 },
+		employee_4_hours: { required: true, number: true, min: 0 },
+		// employee_5_hours: { required: true, number: true, min: 0 },
+		// employee_6_hours: { required: true, number: true, min: 0 },
+		employee_1_rate: { required: false, number: true, min:0 },
+		employee_2_rate: { required: false, number: true, min:0 },
+		employee_3_rate: { required: false, number: true, min:0 },
+		employee_4_rate: { required: false, number: true, min:0 },
+		// employee_5_rate: { required: true, number: true, min:0 },
+		// employee_6_rate: { required: true, number: true, min:0 }
+	
+	}
+	});
+});
+		
+function hours(){
+if ($("#employee").valid()) {
+	//string to number
+	var employee1hours = parseFloat(document.getElementById("employee_1_hours").value);
+	var employee2hours = parseFloat(document.getElementById("employee_2_hours").value);
+	var employee3hours = parseFloat(document.getElementById("employee_3_hours").value);
+	var employee4hours = parseFloat(document.getElementById("employee_4_hours").value);
+	// var employee5hours = parseFloat(document.getElementById("employee_5_hours").value);
+	// var employee6hours = parseFloat(document.getElementById("employee_6_hours").value);
+
+	var employee1rate = 239.99;
+	var employee2rate = 129.75;
+	var employee3rate = 99.95;
+	var employee4rate = 350.89;
+
+	// var employee5rate = parseFloat(document.getElementById("employee_5_rate").value);
+	// var employee6rate = parseFloat(document.getElementById("employee_6_rate").value);
+	//Calculate Gross Pay
+	if (employee1hours <= 40) {
+	var employee1pay = (employee1hours * employee1rate).toFixed(2);
+	}
+	else {
+		employee1pay = (employee1hours * (employee1rate * 1.5)).toFixed(2);
+		}
+		
+	if (employee2hours <= 40) {
+	var employee2pay = (employee2hours * employee2rate).toFixed(2);
+	}
+	else {
+		employee2pay = (employee2hours * (employee2rate * 1.5)).toFixed(2);
+	}
+	
+	if (employee3hours <= 40) {
+	var employee3pay = (employee3hours * employee3rate).toFixed(2);
+	}
+	else {
+		employee3pay = (employee3hours * (employee3rate * 1.5)).toFixed(2);
+	}
+	
+	if (employee4hours <= 40) {
+	var employee4pay = (employee4hours * employee4rate).toFixed(2);
+	}
+	else {
+		employee4pay = (employee4hours * (employee4rate * 1.5)).toFixed(2);
+	}
+	
+	function addAmount(){
+		var n1 = employee1pay;
+		var n2 = employee2pay;
+		var n3 = employee3pay;
+		var n4 = employee4pay;
+
+		var total = parseFloat(employee1pay) + parseFloat(employee2pay) + parseFloat(employee3pay) + parseFloat(employee4pay);
+		return total;
+	}
+	
+
+
+	// if (employee5hours <= 40) {
+	// var employee5pay = (employee5hours * employee5rate).toFixed(2);
+	// }
+	// else {
+	// 	employee5pay = (employee5hours * (employee5rate * 1.5)).toFixed(2);
+	// }
+	
+	// if (employee6hours <= 40) {
+	// var employee6pay = (employee6hours * employee6rate).toFixed(2);
+	// }
+	// else {
+	// 	employee6pay = (employee6hours * (employee6rate * 1.5)).toFixed(2);
+	// }
+
+	//Output Hours Worked
+	document.getElementById("employee_1_hours_display").value = employee1hours
+	document.getElementById("employee_2_hours_display").value = employee2hours
+	document.getElementById("employee_3_hours_display").value = employee3hours
+	document.getElementById("employee_4_hours_display").value = employee4hours
+	// document.getElementById("employee_5_hours_display").value = employee5hours
+	// document.getElementById("employee_6_hours_display").value = employee6hours
+	
+	//Output Hourly Rate
+	// document.getElementById("employee_1_rate_display").value =  employee1rate
+	// document.getElementById("employee_2_rate_display").value =  employee2rate
+	// document.getElementById("employee_3_rate_display").value =  employee3rate
+	// document.getElementById("employee_4_rate_display").value =  employee4rate
+	// document.getElementById("employee_5_rate_display").value =  employee5rate
+	// document.getElementById("employee_6_rate_display").value =  employee6rate
+	//Output Gross Pay
+	document.getElementById("employee_1_pay_display").value = ("$" + employee1pay)
+	document.getElementById("employee_2_pay_display").value = ("$" + employee2pay)
+	document.getElementById("employee_3_pay_display").value = ("$" + employee3pay)
+	document.getElementById("employee_4_pay_display").value = ("$" + employee4pay)
+	// document.getElementById("employee_5_pay_display").value = ("$" + employee5pay)
+	// document.getElementById("employee_6_pay_display").value = ("$" + employee6pay)
+	//Total Amount Sold
+	document.getElementById("employee_total_display").value = employee_1_pay_display + employee_2_pay_display;
+	
+	}
+}
+</script>
+</head>
+
+<body>
+	<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+		  <!-- <li class="nav-item">
+		    <a class="nav-link active" href="#">Main</a>
+		  </li> -->
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw2.html">Homework 2</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link active" href="../hw3.html">Homework 3</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw4.html">Homework 4</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw5.html">Homework 5</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw6.html">Homework 6</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw7.html">Homework 7</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw8.html">Homework 8</a>
+		  </li>
+		</ul>
+	<div class="box">
+		<ul class="links">
+		    <li><a href="../hw3/part1.html">Part 1</a></li>
+	        <li><a href="#">Part 2</a></li>
+	        <li><a href="../hw3/part3.html">Part 3</a></li>	       <li><a href="../hw3/part4.html">Part 4</a></li>
+		</ul>
+	</div>
+<header>
+<h2 id="title">Looping Statements</h2>
+</header>
+	
+<section id="container">
+<form id="employee" name="employee">
+<table>
+	<thead>
+    <tr>
+    <th>Items</th>
+    <!-- <th class="l">Hours Worked</th>
+    <th class="l">Hourly Rate</th> -->
+    </tr>
+    </thead>
+    <tbody>
+	<tr>
+    <td><label for="employee_1_hours">Item 1:</label></td>
+    <td class="w"><input class="r" id="employee_1_hours" name="employee_1_hours" type="text" size="12"</td>
+    <!-- <td class="w"><input class="r" id="employee_1_rate" name="employee_1_rate" type="text" size="12"></td>  -->
+    </tr>
+    <tr>
+    <td><label for="employee_2_hours">Item 2:</label></td>
+    <td class="w"><input class="r" id="employee_2_hours" name="employee_2_hours" type="text" size="12"></td>
+    <!-- <td class="w"><input class="r" id="employee_2_rate" name="employee_2_rate" type="text" size="12"></td> -->
+	</tr>
+    <tr>
+    <td><label for="employee_3_hours">Item 3:</label></td>
+    <td class="w"><input class="r" id="employee_3_hours" name="employee_3_hours" type="text" size="12"></td>
+    <!-- <td class="w"><input class="r" id="employee_3_rate" name="employee_3_rate" type="text" size="12"></td> -->
+    </tr>
+    <tr>
+    <td><label for="employee_4_hours">Item 4:</label></td>
+    <td class="w"><input class="r" id="employee_4_hours" name="employee_4_hours" type="text" size="12"></td>
+    <!-- <td class="w"><input class="r" id="employee_4_rate" name="employee_4_rate" type="text" size="12"></td> -->
+    </tr>
+    <!-- <tr>
+    <td><label for="employee_5_hours">Item 5:</label></td>
+    <td class="w"><input class="r" id="employee_5_hours" name="employee_5_hours" type="text" size="12"></td>
+    <td class="w"><input class="r" id="employee_5_rate" name="employee_5_rate" type="text" size="12"></td>
+    </tr>
+    <tr>
+    <td><label for="employee_6_hours">Item 6:</label></td>
+    <td class="w"><input class="r" id="employee_6_hours" name="employee_6_hours" type="text" size="12"></td>
+    <td class="w"><input class="r" id="employee_6_rate" name="employee_6_rate" type="text" size="12"></td>
+    </tr> -->
+    </tbody>
+</table>
+
+<br>
+<input type="button" value="Submit" onClick="hours()">
+<input type="reset" value="Reset">
+
+<br><br>
+<hr>
+
+<table>
+	<tr>
+		<th>Item #</th>
+		<th>Price</th>
+		<th>Number Sold</th>
+		<!-- <th>Hourly Rate</th> -->
+		<th>Total</th>
+		
+	</tr>
+	<tr>
+    	<td>1</td>
+    	<td>$239.99</td>
+        <td><textarea class="r" rows="1" cols="20" id="employee_1_hours_display" disabled></textarea></td>
+        <!-- <td><textarea class="r" rows="1" cols="20" id="employee_1_rate_display" disabled></textarea></td> -->
+        <td><textarea class="r" rows="1" cols="20" id="employee_1_pay_display" disabled></textarea></td>
+        <!-- <td><textarea class="r" rows="1" cols="20" id="employee_1_pay_display" disabled></textarea></td> -->
+    </tr>
+    <tr>
+    	<td>2</td>
+    	<td>$129.75</td>
+        <td><textarea class="r" rows="1" cols="20" id="employee_2_hours_display" disabled></textarea></td>
+        <!-- <td><textarea class="r" rows="1" cols="20" id="employee_2_rate_display" disabled></textarea></td> -->
+        <td><textarea class="r" rows="1" cols="20" id="employee_2_pay_display" disabled></textarea></td>
+        <!-- <td><textarea class="r" rows="1" cols="20" id="employee_2_pay_display" disabled></textarea></td> -->
+    </tr>
+    <tr>
+    	<td>3</td>
+    	<td>$99.95</td>
+        <td><textarea class="r" rows="1" cols="20" id="employee_3_hours_display" disabled></textarea></td>
+        <!-- <td><textarea class="r" rows="1" cols="20" id="employee_3_rate_display" disabled></textarea></td> -->
+        <td><textarea class="r" rows="1" cols="20" id="employee_3_pay_display" disabled></textarea></td>
+        <!-- <td><textarea class="r" rows="1" cols="20" id="employee_3_pay_display" disabled></textarea></td> -->
+    </tr>
+    <tr>
+    	<td>4</td>
+    	<td>$350.89</td>
+        <td><textarea class="r" rows="1" cols="20" id="employee_4_hours_display" disabled></textarea></td>
+        <!-- <td><textarea class="r" rows="1" cols="20" id="employee_4_rate_display" disabled></textarea></td> -->
+        <td><textarea class="r" rows="1" cols="20" id="employee_4_pay_display" disabled></textarea></td>
+        <!-- <td><textarea class="r" rows="1" cols="20" id="employee_4_pay_display" disabled></textarea></td> -->
+    </tr>
+    <tr>
+    	<td colspan="3">Total Amount Sold:</td>
+    	<td><textarea class="r" rows="1" cols="20" id="employee_total_display" disabled></textarea></td>
+    </tr>
+    <tr>
+    	<td colspan="3">Total Weekly Earnings:</td>
+    	<td><textarea class="r" rows="1" cols="20" id="employee_1_pay_display" disabled></textarea></td>
+    </tr>
+	<!-- <tr>
+    	<td>5</td>
+        <td><textarea class="r" rows="1" cols="20" id="employee_5_hours_display" disabled></textarea></td>
+        <td><textarea class="r" rows="1" cols="20" id="employee_5_rate_display" disabled></textarea></td>
+        <td><textarea class="r" rows="1" cols="20" id="employee_5_pay_display" disabled></textarea></td>
+    </tr>
+    <tr>
+    	<td>6</td>
+        <td><textarea class="r" rows="1" cols="20" id="employee_6_hours_display" disabled></textarea></td>
+        <td><textarea class="r" rows="1" cols="20" id="employee_6_rate_display" disabled></textarea></td>
+        <td><textarea class="r" rows="1" cols="20" id="employee_6_pay_display" disabled></textarea></td>
+    </tr> -->
+</table>
+</form>
+
+
+
+
+
+</body>
+</html>
