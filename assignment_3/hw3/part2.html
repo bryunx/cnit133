@@ -11,9 +11,14 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script src="http://fog.ccsf.edu/~srubin/jQvalidate.js"></script>
-<script type="text/javascript">
-//jQuery stuff
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#salesperson").hover(function(){
+        alert("Please make sure the salesperson's name is spelled correctly.");
+    });
+});
+	
 </script>
 <style>
 .links {
@@ -117,9 +122,13 @@ if ($("#employee").valid()) {
 		var n4 = employee4pay;
 
 		var total = parseFloat(employee1pay) + parseFloat(employee2pay) + parseFloat(employee3pay) + parseFloat(employee4pay);
-		return total;
+		return total.toFixed(2);
 	}
 	
+	function weeklyEarnings(){
+		var total = (addAmount() * .09) + 200;
+		return total.toFixed(2);
+	}
 
 
 	// if (employee5hours <= 40) {
@@ -159,8 +168,8 @@ if ($("#employee").valid()) {
 	// document.getElementById("employee_5_pay_display").value = ("$" + employee5pay)
 	// document.getElementById("employee_6_pay_display").value = ("$" + employee6pay)
 	//Total Amount Sold
-	document.getElementById("employee_total_display").value = employee_1_pay_display + employee_2_pay_display;
-	
+	document.getElementById("employee_total_display").value = addAmount();
+	document.getElementById("employee_weekly_earnings").value = weeklyEarnings();
 	}
 }
 </script>
@@ -197,7 +206,8 @@ if ($("#employee").valid()) {
 		<ul class="links">
 		    <li><a href="../hw3/part1.html">Part 1</a></li>
 	        <li><a href="#">Part 2</a></li>
-	        <li><a href="../hw3/part3.html">Part 3</a></li>	       <li><a href="../hw3/part4.html">Part 4</a></li>
+	        <li><a href="../hw3/part3.html">Part 3</a></li>
+	        <li><a href="../hw3/part4.html">Part 4</a></li>
 		</ul>
 	</div>
 <header>
@@ -206,6 +216,9 @@ if ($("#employee").valid()) {
 	
 <section id="container">
 <form id="employee" name="employee">
+	<p>Enter Salesperson's Name</p>
+	<input id="salesperson" type="text" size="22">
+	<br>
 <table>
 	<thead>
     <tr>
@@ -217,7 +230,7 @@ if ($("#employee").valid()) {
     <tbody>
 	<tr>
     <td><label for="employee_1_hours">Item 1:</label></td>
-    <td class="w"><input class="r" id="employee_1_hours" name="employee_1_hours" type="text" size="12"</td>
+    <td class="w"><input class="r" id="employee_1_hours" name="employee_1_hours" type="text" size="12"></td>
     <!-- <td class="w"><input class="r" id="employee_1_rate" name="employee_1_rate" type="text" size="12"></td>  -->
     </tr>
     <tr>
@@ -302,7 +315,7 @@ if ($("#employee").valid()) {
     </tr>
     <tr>
     	<td colspan="3">Total Weekly Earnings:</td>
-    	<td><textarea class="r" rows="1" cols="20" id="employee_1_pay_display" disabled></textarea></td>
+    	<td><textarea class="r" rows="1" cols="20" id="employee_weekly_earnings" disabled></textarea></td>
     </tr>
 	<!-- <tr>
     	<td>5</td>
