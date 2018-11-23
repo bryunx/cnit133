@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>CNIT 133</title>
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!--CSS Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!--JS Bootstrap-->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	
+
+
+	<!--CSS-->
+<!-- 	<link rel="stylesheet" type="text/css" href="css/main.css">
+ -->	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+	/*jQuery code for tooltip  */
+	$( function() {
+	    $( "#draggable" ).draggable();
+	  } );
+	</script>
+
+	<style>
+	/* CSS for tooltip */
+		label {
+			display: inline-block;
+			width: 5em;
+		}
+	    
+		.body {
+			width: 415px;
+			margin: 0px auto;
+			background-color: #f5f5dc;
+			padding: 15px;
+		}
+
+		#panel, #flip {
+		    padding: 5px;
+		    text-align: center;
+		    background-color: #e5eecc;
+		    border: solid 1px #c3c3c3;
+		}
+
+		#panel {
+		    padding: 50px;
+		    display: none;
+		}
+		.links {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+		    background-color: #333333;
+		}
+
+		.links li {
+		    float: left;
+		}
+
+		.links li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 16px;
+		    text-decoration: none;
+	    }
+
+		.links li a:hover {
+		    background-color: #111111;
+	    }
+	    h2{
+	    	text-align: center;
+	    }
+	    #draggable { width: 150px; height: 150px; padding: 0.5em; }
+	    #html5 {
+			height: 31px;
+			width: 30px;
+		}
+
+		#css {
+			width: 88px;
+			height: 31px;
+		}
+	    #validator2 {
+	      text-align: center;
+	    }
+	    #validator2 li {
+	      display: inline-block;
+	      margin: 0 8px 0 8px;
+	    }
+	</style>
+	<!-- javascript -->
+		
+
+	</head>
+		<body>
+			<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+		  <!-- <li class="nav-item">
+		    <a class="nav-link active" href="#">Main</a>
+		  </li> -->
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw2.html">Homework 2</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw3.html">Homework 3</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw4.html">Homework 4</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link active" href="../hw5.html">Homework 5</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw6.html">Homework 6</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw7.html">Homework 7</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw8.html">Homework 8</a>
+			  </li>
+			</ul>
+			<div class="box">
+			    <ul class="links">
+			        <li><a href="#">Part 1</a></li>
+			        <li><a href="../hw5/part2.html">Part 2</a></li>
+			        <li><a href="../hw5/part3.html">Extra Credit</a></li>
+			    </ul>
+			</div>
+			<h2>Part 1 Array</h2>
+
+			<form action="submission.html" method="get" onsubmit="return validate()">Enter Name: <input type="text" placeholder="John" type="text" name="name" id="name"><br>
+				<input type="checkbox" name="student" id="student"> I am a student
+				<input type="checkbox" name="nstudent" id="nstudent"> I am not a student<br>
+				<input type="radio" name="gender" id="male" value="male"> Male 
+				<input type="radio" name="gender" id="femail" value="female"> Female<br>
+				<input type="submit" value="Submit">
+			</form>
+
+		      
+
+
+<script>
+	function validate(){
+		var name = document.getElementById("name").required;
+		var student = document.getElementById("student").checked;
+		var nstudent = document.getElementById("nstudent").checked;
+		var radios = document.getElementsByName("gender");
+	    var formValid = false;
+	    var i = 0;
+
+	  	if(document.getElementById("name").value == ""){
+	  		alert('Please enter your name!');
+	  		return false;
+	  	} else if ((student == "") && (nstudent == "")){
+	    	alert("Please check a box!");
+	    	return false;
+	    }
+
+	    while (!formValid && i < radios.length) {
+	        if (radios[i].checked) formValid = true;
+	        i++;        
+	    }
+
+	    if (!formValid) alert("Must check some option!");
+	    return formValid;
+	}
+</script>
+
+
+
+
+		</body>
+
+		<!-- jquery -->
+		<!--<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous">
+		</script>-->
+</html>

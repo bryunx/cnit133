@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>CNIT 133</title>
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!--CSS Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!--JS Bootstrap-->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	
+
+
+	<!--CSS-->
+<!-- 	<link rel="stylesheet" type="text/css" href="css/main.css">
+ -->	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+	/*jQuery code for tooltip  */
+	$( function() {
+	    $( "#draggable" ).draggable();
+	  } );
+	</script>
+
+	<style>
+	/* CSS for tooltip */
+		label {
+			display: inline-block;
+			width: 5em;
+		}
+	    
+		.body {
+			width: 415px;
+			margin: 0px auto;
+			background-color: #f5f5dc;
+			padding: 15px;
+		}
+
+		#panel, #flip {
+		    padding: 5px;
+		    text-align: center;
+		    background-color: #e5eecc;
+		    border: solid 1px #c3c3c3;
+		}
+
+		#panel {
+		    padding: 50px;
+		    display: none;
+		}
+		.links {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+		    background-color: #333333;
+		}
+
+		.links li {
+		    float: left;
+		}
+
+		.links li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 16px;
+		    text-decoration: none;
+	    }
+
+		.links li a:hover {
+		    background-color: #111111;
+	    }
+	   
+	    h2{
+	    	text-align: center;
+	    }
+	    #draggable { width: 150px; height: 150px; padding: 0.5em; }
+	    #html5 {
+			height: 31px;
+			width: 30px;
+		}
+
+		#css {
+			width: 88px;
+			height: 31px;
+		}
+	    #validator2 {
+	      text-align: center;
+	    }
+	    #validator2 li {
+	      display: inline-block;
+	      margin: 0 8px 0 8px;
+	    }
+	</style>
+	<!-- javascript -->
+		
+
+	</head>
+
+	<body onload="document.getElementById('key').focus();">
+			<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+		  <!-- <li class="nav-item">
+		    <a class="nav-link active" href="#">Main</a>
+		  </li> -->
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw2.html">Homework 2</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw3.html">Homework 3</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw4.html">Homework 4</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw5.html">Homework 5</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link active" href="../hw6.html">Homework 6</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw7.html">Homework 7</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="../hw8.html">Homework 8</a>
+			  </li>
+			</ul>
+
+			<div class="box">
+			    <ul class="links">
+			        <li><a href="../hw6/part1.html">Part 1</a></li>
+			        <li><a href="#">Part 2</a></li>
+			        <li><a href="../hw6/part3.html">Part 3</a></li>
+			    </ul>
+			</div>
+
+<section class="body">
+        <h3>Part 2 - Search Character</h3>
+
+      <form name="myForm">
+         
+         <p>Enter text:
+         <input type="text" id="numb" size="30"></p>
+
+         <p>Enter a character to search for
+            <input id="key" type="text" size="5">
+            <input type="button" value="Search" onclick="search();">
+             <input type="reset" value="Reset" onClick="location.reload();">
+
+         <br><br>
+         
+<!--              Occurrences of search character in Mary had a little lamb:
+ -->            <textarea cols="30" rows="1" id="output"></textarea>
+         </p>
+      </form>
+
+</section>
+			
+
+<script>
+	function search()
+         {
+            var count=0;
+            
+            var key=document.getElementById("key").value.toLowerCase().charAt( 0 );
+             var key=key.toLowerCase();
+
+            var stringToSearch=document.getElementById("numb").value;
+            var stringToSearch=stringToSearch.toLowerCase(); 
+  
+                        
+             for (i=0; i < stringToSearch.length; i++)
+                     {
+
+                    if (stringToSearch.charAt(i) == key)
+                             count++;     
+                     }         
+      
+            if ( count == 0 )
+               document.getElementById("output").value=key + " not found";
+            else
+               document.getElementById("output").value=count + 
+                  " occurrence(s) of " + key + " found";
+         }
+</script>
+
+		</body>
+
+		<!-- jquery -->
+		<!--<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous">
+		</script>-->
+</html>

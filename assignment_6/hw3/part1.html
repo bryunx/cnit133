@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>CNIT 133</title>
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!--CSS Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!--JS Bootstrap-->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+	<!--CSS-->
+<!-- 	<link rel="stylesheet" type="text/css" href="css/main.css">
+ -->	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+	/*jQuery code for tooltip  */
+		$(function() {
+			$( document ).tooltip();
+		});
+
+		$(document).ready(function(){
+		    $("#flip").click(function(){
+		        $("#panel").slideToggle("slow");
+		    });
+		});
+	</script>
+
+	<style>
+	/* CSS for tooltip */
+		label {
+			display: inline-block;
+			width: 5em;
+		}
+	    
+		.body {
+			width: 415px;
+			margin: 0px auto;
+			background-color: #f5f5dc;
+			padding: 15px;
+		}
+
+		#panel, #flip {
+		    padding: 5px;
+		    text-align: center;
+		    background-color: #e5eecc;
+		    border: solid 1px #c3c3c3;
+		}
+
+		#panel {
+		    padding: 50px;
+		    display: none;
+		}
+		.links {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+		    background-color: #333333;
+		}
+
+		.links li {
+		    float: left;
+		}
+
+		.links li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 16px;
+		    text-decoration: none;
+	    }
+
+		.links li a:hover {
+		    background-color: #111111;
+	    }
+	    h2{
+	    	text-align: center;
+	    }
+	    #html5 {
+			height: 31px;
+			width: 30px;
+		}
+
+		#css {
+			width: 88px;
+			height: 31px;
+		}
+	    #validator2 {
+	      text-align: center;
+	    }
+	    #validator2 li {
+	      display: inline-block;
+	      margin: 0 8px 0 8px;
+	    }
+	</style>
+	<!-- javascript -->
+		<script>
+			function process() {
+
+			//Declare variables
+
+			var acr, hw, fe, mid, hwP, feP, midP, acrP, final_avg, fin_grade;
+
+			var errMsg1="<span style='font-weight: bold; color: red; font-size: 20px;'>Invalid HW Avg or Final Exam</span>";
+			// var errMsg2="<span style='font-weight: bold; color: red; font-size: 20px;'>Invalid GPA</span>";
+
+			//get ACR value from form
+
+			acr = document.getElementById("acr").value;
+
+			//get midterm average value from form  
+
+			mid = document.getElementById("midterm").value;
+
+			//get homework average value from form  
+
+			hw = document.getElementById("hwavg").value;
+
+			//get final exam value from form  
+
+			fe = document.getElementById("fexam").value;
+
+			// Validate input - if not then alert error msg...else proceed
+
+			if ( isNaN(hw) || isNaN(fe) || isNaN(acr) || isNaN(mid) || hw=="" || fe==""|| mid=="" || acr=="" || hw > 100 || hw < 0 || fe < 0 || fe > 100 || mid > 100 || mid < 0 || acr > 100 || acr < 0)
+			    {
+			     document.getElementById("errOut").innerHTML = errMsg1;
+			    }
+			
+			else {
+			//Convert input string to numeric 
+			     acrP = parseFloat ( acr ); 
+			     hwP = parseInt( hw );
+			     feP = parseInt( fe );
+			     midP = parseInt( mid );
+			//Calculate final average
+			     // final_avg = (.7 * hwP) + (.3 * feP);
+			     final_avg = (.5 * hwP) + (.2 * midP) + (.2 * feP) + (.1 * acrP)
+
+			//Note: you must use true in switch satement..then case ranges for final_avg will work
+
+			     switch(true) {
+
+			       case (final_avg >= 90):
+			          document.getElementById("results").innerHTML = ("The final average is " + Math.round( final_avg ) +  
+			"<br>The final grade is A<br>Excellent work!")
+			          break;
+
+			       case (final_avg >= 80):
+			          document.getElementById("results").innerHTML = ("The final average is " + Math.round( final_avg ) +  
+			"<br>The final grade is B<br>Good work!")
+			          break;
+
+			       case (final_avg >= 70):
+			          document.getElementById("results").innerHTML = ("The final average is " + Math.round( final_avg ) +  
+			"<br>The final grade is C<br>Average work!") 
+			          break;
+
+			       case (final_avg >= 60):
+			          document.getElementById("results").innerHTML = ("The final average is " + Math.round( final_avg ) +  
+			"<br>The final grade is D<br>Poor work!<br>You must re-take the course")
+			          break;
+
+			       default:
+			          document.getElementById("results").innerHTML = ("The final average is " + Math.round( final_avg ) +  
+			"<br>The final grade is F\nFailing work!<br>You must re-take the course")
+
+			//end switch logic
+			    }
+
+			//end else logic
+			 } 
+
+			//end function
+			}
+
+
+			function res()
+			{
+			document.getElementById("results").innerHTML = "";
+			document.getElementById("errOut").innerHTML = "";
+			}
+
+		</script>
+
+	</head>
+		<body>
+			<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+		  <!-- <li class="nav-item">
+		    <a class="nav-link active" href="#">Main</a>
+		  </li> -->
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw2.html">Homework 2</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link active" href="../hw3.html">Homework 3</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw4.html">Homework 4</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw5.html">Homework 5</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw6.html">Homework 6</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw7.html">Homework 7</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw8.html">Homework 8</a>
+		  </li>
+		</ul>
+
+		<div class="box">
+		    <ul class="links">
+		        <li><a href="#">Part 1</a></li>
+		        <li><a href="../hw3/part2.html">Part 2</a></li>
+		        <li><a href="../hw3/part3.html">Part 3</a></li>
+		        <li><a href="../hw3/part4.html">Part 4</a></li>
+		    </ul>
+		</div>
+		<h2 >Student's Grades</h2>
+			<section class="body">
+
+			<div id="flip">Click to Show/Hide Instructions</div>
+			<div id="panel">
+
+			<h3>Student's Grades</h3>
+
+			
+
+			<form name="myform">
+
+			<!-- <p><label for="GPA">Your GPA:</label><input id="GPA" name="GPA" 
+			title="We ask for your Grade Point Average only for statistical purposes. A valid GPA is between 0 and 4.0"></p> -->
+
+			<table>
+			<tr>
+			<td>CNIT 133 Homework Average: </td><td><input type="text" id="hwavg" size="4" title="Please enter a number from 0 - 100."></td>
+			</tr>
+
+			<td>CNIT 133 Mid-term Exam: </td><td><input type="text" id="midterm" size="4" title="Please enter a number from 0 - 100."></td>
+			</tr>
+
+			<tr>
+			<td>CNIT 133 Final Exam: </td>
+			<td><input type="text" id="fexam" size="4" title="Please enter a number from 0 - 100."></td>
+			</tr>
+
+			<tr>
+			<td>CNIT 133 ACR: </td>
+			<td><input type="text" id="acr" size="4" title="Please enter a number from 0 - 100."></td>
+			</tr>
+			</table>
+			<br>
+
+			<div id ="errOut"></div> 
+			<br>
+			<span style="color: blue; font-size: 20px;">Summary of Final Grade:</span> <div id="results"></div>
+			<br><br>
+
+			<input type="button"  onclick="process()" value="SUBMIT">
+			<input type="reset" value="RESET" onclick="res()"><br><br>
+
+			</form>
+			</section>
+
+			</div>
+
+			<div id='validator2'>
+				<li id='html'>
+					<p><a href='https://validator.w3.org/check?uri=referer'><img src="../img/html5.png" alt="html5" id="html5"></a></p>
+				</li>
+				<li>
+					<p><a href='https://jigsaw.w3.org/css-validator/check/referer'><img src="../img/css.png" alt="css" id="css"></a></p>
+				</li>
+			</div>
+
+		</body>
+
+
+
+		
+
+	
+		
+		
+
+
+		<!-- jquery -->
+		<!--<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous">
+		</script>-->
+</html>

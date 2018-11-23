@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>CNIT 133 Homework 4 - Looping Statements</title>
+<meta name="keywords" content="Raymond Chen Javascript Class"/>
+<meta name="description" content="Homework 4, Raymond Chen CNIT 133 Student"/>
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="http://fog.ccsf.edu/~srubin/jQvalidate.js"></script>
+<script>
+$(document).ready(function(){
+    $("#salesperson").mouseover(function(){
+        alert("Please make sure the salesperson's name is spelled correctly.");
+    });
+});
+	
+</script>
+<style>
+.links {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+		    background-color: #333333;
+		}
+
+		.links li {
+		    float: left;
+		}
+
+		.links li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 16px;
+		    text-decoration: none;
+	    }
+
+		.links li a:hover {
+		    background-color: #111111;
+	    }
+	    #html5 {
+			height: 31px;
+			width: 30px;
+		}
+
+		#css {
+			width: 88px;
+			height: 31px;
+		}
+	    #validator2 {
+	      text-align: center;
+	    }
+	    #validator2 li {
+	      display: inline-block;
+	      margin: 0 8px 0 8px;
+	    }
+</style>
+
+<script>
+$(document).ready(function(){
+	$("#employee").validate({
+	//rules for valid input
+	rules:
+	{
+		item_1_item: { required: true, number: true, min: 0 },
+		item_2_item: { required: true, number: true, min: 0 },
+		item_3_item: { required: true, number: true, min: 0 },
+		item_4_item: { required: true, number: true, min: 0 }
+	}
+	});
+});
+		
+function hours(){
+if ($("#employee").valid()) {
+	//string to number
+	var number_1_sold = parseFloat(document.getElementById("item_1_item").value);
+	var number_2_sold = parseFloat(document.getElementById("item_2_item").value);
+	var number_3_sold = parseFloat(document.getElementById("item_3_item").value);
+	var number_4_sold = parseFloat(document.getElementById("item_4_item").value);
+
+
+	var item_1_price = 239.99;
+	var item_2_price = 129.75;
+	var item_3_price = 99.95;
+	var item_4_price = 350.89;
+
+	//Calculate Gross Pay
+	if (number_1_sold <= 40) {
+	var item_1_total = (number_1_sold * item_1_price).toFixed(2);
+	}
+	else {
+		item_1_total = (number_1_sold * (item_1_price * 1.5)).toFixed(2);
+		}
+		
+	if (number_2_sold <= 40) {
+	var item_2_total = (number_2_sold * item_2_price).toFixed(2);
+	}
+	else {
+		item_2_total = (number_2_sold * (item_2_price * 1.5)).toFixed(2);
+	}
+	
+	if (number_3_sold <= 40) {
+	var item_3_total = (number_3_sold * item_3_price).toFixed(2);
+	}
+	else {
+		item_3_total = (number_3_sold * (item_3_price * 1.5)).toFixed(2);
+	}
+	
+	if (number_4_sold <= 40) {
+	var item_4_total = (number_4_sold * item_4_price).toFixed(2);
+	}
+	else {
+		item_4_total = (number_4_sold * (item_4_price * 1.5)).toFixed(2);
+	}
+	
+	function addAmount(){
+		var n1 = item_1_total;
+		var n2 = item_2_total;
+		var n3 = item_3_total;
+		var n4 = item_4_total;
+
+		var total = parseFloat(item_1_total) + parseFloat(item_2_total) + parseFloat(item_3_total) + parseFloat(item_4_total);
+		return total.toFixed(2);
+	}
+	
+	function weeklyEarnings(){
+		var total = (addAmount() * .09) + 200;
+		return total.toFixed(2);
+	}
+
+	//Output Numbers Sold
+	document.getElementById("number_1_display").value = number_1_sold
+	document.getElementById("number_2_display").value = number_2_sold
+	document.getElementById("number_3_display").value = number_3_sold
+	document.getElementById("number_4_display").value = number_4_sold
+
+	
+	
+	//Output Item Total
+	document.getElementById("item_1_display").value = ("$" + item_1_total)
+	document.getElementById("item_2_display").value = ("$" + item_2_total)
+	document.getElementById("item_3_display").value = ("$" + item_3_total)
+	document.getElementById("item_4_display").value = ("$" + item_4_total)
+
+	//Total Amount Sold
+	document.getElementById("total_display").value = addAmount();
+	document.getElementById("total_earnings").value = weeklyEarnings();
+	}
+}
+</script>
+</head>
+
+<body>
+	<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+		  <!-- <li class="nav-item">
+		    <a class="nav-link active" href="#">Main</a>
+		  </li> -->
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw2.html">Homework 2</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link active" href="../hw3.html">Homework 3</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw4.html">Homework 4</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw5.html">Homework 5</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw6.html">Homework 6</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw7.html">Homework 7</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw8.html">Homework 8</a>
+		  </li>
+		</ul>
+	<div class="box">
+		<ul class="links">
+		    <li><a href="../hw3/part1.html">Part 1</a></li>
+	        <li><a href="#">Part 2</a></li>
+	        <li><a href="../hw3/part3.html">Part 3</a></li>
+	        <li><a href="../hw3/part4.html">Part 4</a></li>
+		</ul>
+	</div>
+<header>
+<h2 id="title">Looping Statements</h2>
+</header>
+	
+<section id="container">
+<form id="employee" name="employee">
+	<p>Enter Salesperson's Name</p>
+	<input id="salesperson" type="text" size="22">
+	<br>
+<table>
+	<thead>
+    <tr>
+    <th>Items</th>
+    </tr>
+    </thead>
+    <tbody>
+	<tr>
+    <td><label for="number_1_sold">Item 1:</label></td>
+    <td class="w"><input class="r" id="item_1_item" name="item_1_item" type="text" size="12"></td>
+    </tr>
+    <tr>
+    <td><label for="number_2_sold">Item 2:</label></td>
+    <td class="w"><input class="r" id="item_2_item" name="item_2_item" type="text" size="12"></td>
+	</tr>
+    <tr>
+    <td><label for="number_3_sold">Item 3:</label></td>
+    <td class="w"><input class="r" id="item_3_item" name="item_3_item" type="text" size="12"></td>
+    </tr>
+    <tr>
+    <td><label for="number_4_sold">Item 4:</label></td>
+    <td class="w"><input class="r" id="item_4_item" name="item_4_item" type="text" size="12"></td>
+    </tr>
+    
+    </tbody>
+</table>
+
+<br>
+<input type="button" value="Submit" onClick="hours()">
+<input type="reset" value="Reset">
+
+<br><br>
+<hr>
+
+<table>
+	<tr>
+		<th>Item #</th>
+		<th>Price</th>
+		<th>Number Sold</th>
+		<th>Total</th>
+		
+	</tr>
+	<tr>
+    	<td>1</td>
+    	<td>$239.99</td>
+        <td><textarea class="r" rows="1" cols="20" id="number_1_display" disabled></textarea></td>
+        <td><textarea class="r" rows="1" cols="20" id="item_1_display" disabled></textarea></td>
+    </tr>
+    <tr>
+    	<td>2</td>
+    	<td>$129.75</td>
+        <td><textarea class="r" rows="1" cols="20" id="number_2_display" disabled></textarea></td>
+        <td><textarea class="r" rows="1" cols="20" id="item_2_display" disabled></textarea></td>
+    </tr>
+    <tr>
+    	<td>3</td>
+    	<td>$99.95</td>
+        <td><textarea class="r" rows="1" cols="20" id="number_3_display" disabled></textarea></td>
+        <td><textarea class="r" rows="1" cols="20" id="item_3_display" disabled></textarea></td>
+    </tr>
+    <tr>
+    	<td>4</td>
+    	<td>$350.89</td>
+        <td><textarea class="r" rows="1" cols="20" id="number_4_display" disabled></textarea></td>
+        <td><textarea class="r" rows="1" cols="20" id="item_4_display" disabled></textarea></td>
+    </tr>
+    <tr>
+    	<td colspan="3">Total Amount Sold:</td>
+    	<td><textarea class="r" rows="1" cols="20" id="total_display" disabled></textarea></td>
+    </tr>
+    <tr>
+    	<td colspan="3">Total Weekly Earnings:</td>
+    	<td><textarea class="r" rows="1" cols="20" id="total_earnings" disabled></textarea></td>
+    </tr>
+	
+</table>
+</form>
+<br>
+	<div id='validator2'>
+				<li id='html'>
+					<p><a href='https://validator.w3.org/check?uri=referer'><img src="../img/html5.png" alt="html5" id="html5"></a></p>
+				</li>
+				<li>
+					<p><a href='https://jigsaw.w3.org/css-validator/check/referer'><img src="../img/css.png" alt="css" id="css"></a></p>
+				</li>
+			</div>
+
+</body>
+</html>

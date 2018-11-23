@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>CNIT 133</title>
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!--CSS Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!--JS Bootstrap-->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+	<!--CSS-->
+<!-- 	<link rel="stylesheet" type="text/css" href="css/main.css">
+ -->	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+	/*jQuery code for tooltip  */
+		$(function() {
+			$( document ).tooltip();
+		});
+
+		$(document).ready(function(){
+		    $("#flip").click(function(){
+		        $("#panel").slideToggle("slow");
+		    });
+		});
+	</script>
+
+	<style>
+	/* CSS for tooltip */
+		label {
+			display: inline-block;
+			width: 5em;
+		}
+	    
+		.body {
+			width: 415px;
+			margin: 0px auto;
+			background-color: #f5f5dc;
+			padding: 15px;
+		}
+
+		#panel, #flip {
+		    padding: 5px;
+		    text-align: center;
+		    background-color: #e5eecc;
+		    border: solid 1px #c3c3c3;
+		}
+
+		#panel {
+		    padding: 50px;
+		    display: none;
+		}
+		.links {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+		    background-color: #333333;
+		}
+		.links li {
+		    float: left;
+		}
+
+		.links li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 16px;
+		    text-decoration: none;
+	    }
+
+		.links li a:hover {
+		    background-color: #111111;
+	    }
+	    h2{
+	    	text-align: center;
+	    }
+	    table, th, td {
+		    border: 1px solid black;
+		    border-collapse: collapse;
+		}
+		th, td {
+		    padding: 5px;
+		}
+		th {
+		   padding: 15px;
+		}
+	    #html5 {
+			height: 31px;
+			width: 30px;
+		}
+
+		#css {
+			width: 88px;
+			height: 31px;
+		}
+	    #validator2 {
+	      text-align: center;
+	    }
+	    #validator2 li {
+	      display: inline-block;
+	      margin: 0 8px 0 8px;
+	    }
+	</style>
+	<!-- javascript -->
+		
+
+	</head>
+		<body>
+			<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+		  <!-- <li class="nav-item">
+		    <a class="nav-link active" href="#">Main</a>
+		  </li> -->
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw2.html">Homework 2</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw3.html">Homework 3</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link active" href="../hw4.html">Homework 4</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw5.html">Homework 5</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw6.html">Homework 6</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw7.html">Homework 7</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="../hw8.html">Homework 8</a>
+		  </li>
+		</ul>
+
+		<div class="box">
+		    <ul class="links">
+		        <li><a href="../hw4/part1.html">Part 1</a></li>
+		        <li><a href="#">Part 2</a></li>
+		        <li><a href="../hw4/extra.html">Extra Credit</a></li>
+		    </ul>
+		</div>
+		<h2>For/While Loop</h2>
+		<h3>Part 2</h3>
+			<div class="panel">
+				<p> The following  script that will calculate compound interest on a principal of $1000 for interest rates of 5, 6, 7, 8, 9, and 10%, for years 1 through 10 and display the information in table format.</p>
+			</div>
+
+<!-- HTML and CSS Validator -->
+			<div id='validator2'>
+				<li id='html'>
+					<p><a href='https://validator.w3.org/check?uri=referer'><img src="../img/html5.png" alt="html5" id="html5"></a></p>
+				</li>
+				<li>
+					<p><a href='https://jigsaw.w3.org/css-validator/check/referer'><img src="../img/css.png" alt="css" id="css"></a></p>
+				</li>
+			</div>
+
+<script>
+//declare variables
+var r, n;
+//make a table for each rate
+for(r = 5; r <= 10; r++)
+{
+	document.write("<table border = '1' id='interest'>");
+	document.write('<tr>' + '<th>Year</th>' + '<th>Amount</th>' + '<th>Interest Rate</th>' + '<tr>')
+//provide 10 years for each rate					
+	for(n = 1; n <= 10; n++)
+	{
+		document.write('<tr>');
+		document.write('<td class="l">' + n + '</td>' +
+						"<td>" + (Math.pow((1+(r/100)),n)*1000).toFixed(2) + 
+						"</td><td>" + (r/100).toFixed(2) +
+						"</td>");
+						document.write('</tr>');
+	}
+}
+document.write('</table>');
+
+</script>
+
+
+
+
+		</body>
+
+		<!-- jquery -->
+		<!--<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous">
+		</script>-->
+</html>
